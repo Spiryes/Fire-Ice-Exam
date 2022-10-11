@@ -1,0 +1,68 @@
+﻿@model fireiceproj.Models.Queries
+
+@{
+    ViewData["Title"] = "EditEngenear";
+}
+
+<h1>EditEngenear</h1>
+
+<h4>Queries</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditEngenear">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Idquer" />
+            <div class="form-group">
+                <label asp-for="Nameoftheproblem" class="control-label"></label>
+                <input asp-for="Nameoftheproblem" class="form-control" />
+                <span asp-validation-for="Nameoftheproblem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Txt" class="control-label"></label>
+                <input asp-for="Txt" class="form-control" />
+                <span asp-validation-for="Txt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adress" class="control-label"></label>
+                <input asp-for="Adress" class="form-control" />
+                <span asp-validation-for="Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select name="Status" id="Status">
+                    <option value="изчакваща">изчакваща</option>
+                    <option value="очаква повещение">очаква повещение</option>
+                    <option value="в прогрес">в прогрес</option>
+                    <option value="Приключена">Приключена</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dateofvisit" class="control-label"></label>
+                <input asp-for="Dateofvisit" class="form-control" />
+                <span asp-validation-for="Dateofvisit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nameoftechnition" class="control-label"></label>
+                <input asp-for="Nameoftechnition" class="form-control" />
+                <span asp-validation-for="Nameoftechnition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

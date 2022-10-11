@@ -1,0 +1,92 @@
+﻿@model IEnumerable<fireiceproj.Models.Queries>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<header>
+    <nav>
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Към вход</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+           
+        </div>
+    </nav>
+</header>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form method="get" asp-action="Index">
+    <p>
+        <input type="search" placeholder="Въведи статус на поръчка" value="@ViewData["status"]" name="status" style="width:500px;" />
+        <input type="submit" value="Търсене" class="btn btn-primary" />
+        <a asp-action="Index">Показване на всички</a>
+    </p>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nameoftheproblem)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Txt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dateofvisit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nameoftechnition)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nameoftheproblem)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Txt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dateofvisit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nameoftechnition)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Idquer">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Idquer">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Idquer">Delete</a>
+                        <a asp-action="EditEngenear" asp-route-id="@item.Idquer">Edit as Engenear</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
